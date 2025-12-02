@@ -11,7 +11,7 @@ Day 1 and 2 have solutions in Haskell.
 
 
 W.i.p.:\
-I'm also working on the Infi challenge. (https://aoc.infi.nl/2025)
+I'm also working on the Infi challenge. [Infi Aoc](https://aoc.infi.nl/2025)
 
 
 Happy coding!

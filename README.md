@@ -10,7 +10,7 @@ Day from 1 to 6 have solutions in Haskell.
 
 
 
-W.i.p.:\
-I'm also working on the Infi challenge. (In Dutch... [Infi AoC](https://aoc.infi.nl/2025) )
+I've also worked on the Infi challenge. (In Dutch... [Infi AoC](https://aoc.infi.nl/2025) )
+That solution will be posted later on. 
 
 Happy coding!

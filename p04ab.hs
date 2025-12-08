@@ -7,7 +7,7 @@
 --
 -- (cl) by Arno Jacobs, 2025-12-04
 
-module AoC2025d04ab where
+-- module AoC2025d04ab where
 
 data Part = PartOne | PartTwo deriving Eq
 

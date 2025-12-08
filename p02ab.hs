@@ -7,7 +7,7 @@
 --
 -- (cl) by Arno Jacobs, 2025-12-02
 
-module AoC2025d02ab where
+-- module AoC2025d02ab where
 
 import Data.List.Split (splitOn)
 

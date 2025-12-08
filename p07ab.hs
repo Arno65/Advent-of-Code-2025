@@ -89,7 +89,7 @@ workRays (l:nl:rls) = workRays' (rl:rls) [] paths
 main :: IO ()
 main = do   putStrLn "Advent of Code 2025 - day 7  (Haskell)"
             day7 <- lines <$> readFile filename
-            putStr "Part One: The number of times the beam is split is: "
+            putStr "Part one: The number of times the beam is split is: "
             print . sum . fst $ workRays day7
             putStr "Part two: The number of different timelines is:     "
             print . sum . snd $ workRays day7

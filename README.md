@@ -8,7 +8,7 @@ Also note that these final results are obtained with the puzzle input from my Ad
 
 Day 1 to 8 and 12 have solutions in Haskell.
 
-W.i.p are the part 2 solutions for day 9,10 and 11.
+W.i.p are the part 2 solutions for day 9, 10 and 11.
 
 I've also worked on the Infi challenge. (In Dutch... [Infi AoC](https://aoc.infi.nl/2025) )
 That solution will be posted later on. 

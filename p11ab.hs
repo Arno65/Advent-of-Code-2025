@@ -11,12 +11,11 @@
 
 -- (cl) by Arno Jacobs, 2025-12-14
 
--- 
 module AoC2025d11ab where
 
 import Data.List.Split  (splitOn)
 -- I see no difference in memory use between the 'Word16' or 'Int16' use 
--- and 'Int' which is 64 bits.
+-- and 'Int' which is 64 bits. -- Need packing...
 
 type Index = Int
 
@@ -36,8 +35,6 @@ usort (e:rl) = usort smaller ++ [e] ++ usort bigger
                 where
                     smaller = filter (<e) rl
                     bigger  = filter (>e) rl 
-
-
 
 backwards :: (Eq a, Ord a) => [(a,[a])] -> [(a,[a])] 
 backwards nws = backwards' toss nws
@@ -77,7 +74,6 @@ travel start = travel' [start]
                                     map (\start -> (filter (\(d,_) -> d == start) network))) 
                                         (filter (/=end) starts)
 
-
 main :: IO ()
 main = do   putStrLn "Advent of Code 2025 - day 11  (Haskell)"
             day11 <- map parseConnections <$> lines <$> readFile filename
@@ -104,13 +100,10 @@ main = do   putStrLn "Advent of Code 2025 - day 11  (Haskell)"
             let pathsDac2Out    = sum $ travel iDac iOut tokenIxs
             --      For optimize on speed and memory usage, the first 5 are enough
             let pathsDac2FFT    = sum $ take 5 $ travel iDac iFFT backwardIxs
---          let pathsDac2FFT    = sum $ take 5 $ travel iFFT iDac tokenIxs
             let pathsFFT2Svr    = sum $ travel iFFT iSvr backwardIxs
             let paths           = product [ pathsDac2Out, pathsDac2FFT, pathsFFT2Svr ]
             putStr "Part two: The number of different paths visiting both dac and fft is: "
---
-            putStrLn "315116216513280 *"
---            print paths
+            print paths
             
             putStrLn "0K.\n"
  

@@ -99,7 +99,7 @@ main = do   putStrLn "Advent of Code 2025 - day 11  (Haskell)"
             --
             let pathsDac2Out    = sum $ travel iDac iOut tokenIxs
             --      For optimize on speed and memory usage, the first 5 are enough
-            let pathsDac2FFT    = sum $ take 5 $ travel iDac iFFT backwardIxs
+            let pathsDac2FFT    = sum $ take 5 $ travel iFFT iDac tokenIxs
             let pathsFFT2Svr    = sum $ travel iFFT iSvr backwardIxs
             let paths           = product [ pathsDac2Out, pathsDac2FFT, pathsFFT2Svr ]
             putStr "Part two: The number of different paths visiting both dac and fft is: "

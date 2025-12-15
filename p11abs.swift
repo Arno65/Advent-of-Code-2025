@@ -5,14 +5,18 @@
 //      Part one:   The number of different paths leading from you to out is:   508
 //      Part two:   The number of different paths visiting both dac and fft is: 315116216513280
 //
-// This code still eats lots of RAM :-(
-// It's about 4x faster than my Haskell version.
+// For a generic solution this code still eats lots of RAM :-(
+// Like with the Haskell code there is a limit set on the depth, a maximum number of steps.
+// With that it's about 18 times faster than my Haskell version and will work on machines 
+// with only 8 Gb of RAM.
 //
 //  (cl) by Arno Jacobs, 2025-12-15
 
 import Cocoa
  
-let filename    = "Code/Advent/AoC_2025/data/inputDay11_2025.txt"
+// Helper for FFT -> DAC (the Haskell code takes the first 5 values > 0)
+let maxDepth: Int       = 16
+let filename: String    = "Code/Advent/AoC_2025/data/inputDay11_2025.txt"
 
 // The read lines function
 func readLines () -> [String] {
@@ -116,25 +120,28 @@ func backwards (_ nodes: [Int16], _ connections: [[Int16]]) -> [[Int16]] {
     return (backwardNodes)
 }
 
-func travel (_ level: Int, _ starts: [Int16], _ end: Int16, _ nodes: [Int16], _ connections: [[Int16]] ) -> Int {
-    // first check for end-points
-    var endCount: Int = 0
-    var restarts: [Int16] = []
-    for start in starts { 
-        if (start == end)   { endCount += 1 } 
-        else                { restarts.append (start) }
-    }
-    // get all the next steps
-    var nextSteps: [Int16] = []
-    for start in restarts {
-        let ix = nodeIndex (nodes, start)
-        nextSteps += connections[ix]
-    }
-    // Helper for FFT -> DAC (the Haskell code takes the first 5 values > 0)
-    if (level >= 16) { return (endCount) }
-
-    if (nextSteps.count == 0) { return (endCount) }     
-    endCount += travel ((level+1), nextSteps, end, nodes, connections)
+func travel (_ startStep: Int16, _ end: Int16, _ nodes: [Int16], _ connections: [[Int16]] ) -> Int {
+    var endCount: Int           = 0
+    var currentSteps: [Int16]   = [startStep]
+    var restarts: [Int16]       = []
+    var nextSteps: [Int16]      = []
+    var stepCounter: Int        = 0
+    repeat {
+        // get all the next steps
+        nextSteps.removeAll ()
+        for start in currentSteps {
+            let ix = nodeIndex (nodes, start)
+            nextSteps += connections[ix]
+        }
+        // check for end-points
+        restarts.removeAll ()
+        for start in nextSteps { 
+            if (start == end)   { endCount += 1 } 
+            else                { restarts.append (start) }
+        }
+        currentSteps = restarts
+        stepCounter += 1
+    } while (currentSteps.count != 0) && (stepCounter < maxDepth)
     return (endCount)
 }
 
@@ -152,12 +159,12 @@ func AOC2025_day11() {
     let nodesConnections: [[Int16]] = getConnections (wiring, nodeNames)
 
     print ("\nAdvent of Code 2025 - day 11  (Swift)\n")
-    let partOne = travel (0, [youIx], outIx, nodes, nodesConnections)
+    let partOne = travel (youIx, outIx, nodes, nodesConnections)
     print ("Part one: The number of different paths leading from you to out is:   \(partOne)")
 
-    let dac2out = travel (0, [dacIx], outIx, nodes, nodesConnections)
-    let fft2dac = travel (0, [fftIx], dacIx, nodes, nodesConnections)
-    let svr2fft = travel (0, [fftIx], svrIx, nodes, backwards(nodes,nodesConnections))
+    let dac2out = travel (dacIx, outIx, nodes, nodesConnections)
+    let fft2dac = travel (fftIx, dacIx, nodes, nodesConnections)
+    let svr2fft = travel (fftIx, svrIx, nodes, backwards(nodes, nodesConnections))
     print ("Part two: The number of different paths visiting both dac and fft is: \(dac2out * fft2dac * svr2fft )")
 
     print ("0K.\n")

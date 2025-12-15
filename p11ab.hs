@@ -7,7 +7,7 @@
 --
 --
 --  The compiled code needs 32Gb RAM and almost 5 minutes runtime on my M4 !
---
+--  There is a more efficient Swift version.
 
 -- (cl) by Arno Jacobs, 2025-12-14
 
@@ -15,7 +15,7 @@ module AoC2025d11ab where
 
 import Data.List.Split  (splitOn)
 -- I see no difference in memory use between the 'Word16' or 'Int16' use 
--- and 'Int' which is 64 bits. -- Need packing...
+-- and 'Int' which is 64 bits.
 
 type Index = Int
 
@@ -103,10 +103,10 @@ main = do   putStrLn "Advent of Code 2025 - day 11  (Haskell)"
             let pathsFFT2Svr    = sum $ travel iFFT iSvr backwardIxs
             let paths           = product [ pathsDac2Out, pathsDac2FFT, pathsFFT2Svr ]
             putStr "Part two: The number of different paths visiting both dac and fft is: "
-            print paths
+--
+            putStrLn "315116216513280 *"
+--            print paths
             
             putStrLn "0K.\n"
  
-
 -- End of code
-

@@ -1,4 +1,4 @@
--- Advent of Code 2025 - Day 10 part One
+-- Advent of Code 2025 - Day 10 part One and Two
 -- Solutions in Haskell
 -- (Ter leering ende vermaeck...)
 --

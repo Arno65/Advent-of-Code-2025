@@ -9,7 +9,7 @@ Also note that these final results are obtained with the puzzle input from my Ad
 Day 1 to 8, 10 and 12 have solutions in Haskell.\
 Day 11 has a solution in Swift and Haskell. The Swift version is the quicker one and uses less RAM.
 
-W.i.p is the part 2 solution for day 9.
+W.i.p is part 2 for day 9.
 
 I've also worked on the Infi challenge. (In Dutch... [Infi AoC](https://aoc.infi.nl/2025) )
 That solution will be posted later on. 

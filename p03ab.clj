@@ -48,8 +48,8 @@
       (maxJoltage (- dp 1) njs rjs))))
 
 (defn work-day-3
-  [joltages code-length]
-  (reduce + (map #(maxJoltage  code-length '() %) joltages)))
+  [joltages digits]
+  (reduce + (map #(maxJoltage  digits '() %) joltages)))
 
 ;;; The 'main' program - - -
 (defn program [] 

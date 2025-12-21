@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 1 part One and Two
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/1
 -- (Ter leering ende vermaeck...)
 --
 -- The password to open the door for part one: 1147

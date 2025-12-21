@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 2 part One and Two
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/2
 -- (Ter leering ende vermaeck...)
 --
 -- Part one: The sum of all invalid ID's is: 23534117921

@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 8 part One and Two
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/8
 -- (Ter leering ende vermaeck...)
 --
 --  Part one: The product of the sizes of the three largest circuits is:     135169

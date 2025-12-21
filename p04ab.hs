@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 4 part One and Two
 -- Solutions in Haskell
+-- -- https://adventofcode.com/2025/day/4
 -- (Ter leering ende vermaeck...)
 --
 --  Part one: The number of rolls of paper that can be accessed by a forklift is: 1370

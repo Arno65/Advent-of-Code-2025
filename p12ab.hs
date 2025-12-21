@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 12 - last quest . . . only one part
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/12
 -- (Ter leering ende vermaeck...)
 --
 --  The number of regions that fit all of the presents listed is: 593

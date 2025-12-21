@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 9 part One and Two
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/9
 -- (Ter leering ende vermaeck...)
 --
 --  Part one: The largest rectangle is: 4781546175

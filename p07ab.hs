@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 7 part One and Two
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/7
 -- (Ter leering ende vermaeck...)
 --
 --  Part one: The number of times the beam is split is: 1622

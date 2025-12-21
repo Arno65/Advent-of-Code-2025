@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 5 part One and Two
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/5
 -- (Ter leering ende vermaeck...)
 --
 --  Part one: The number of fresh ingredients available is:         840

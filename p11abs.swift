@@ -1,5 +1,6 @@
 //  Advent of Code 2025 - Day 11 part One and Two
 //      Solutions in Swift
+//      https://adventofcode.com/2025/day/11
 //      (Ter leering ende vermaeck...)
 //
 //      Part one:   The number of different paths leading from you to out is:   508
@@ -16,7 +17,7 @@ import Cocoa
  
 // Helper for FFT -> DAC (the Haskell code takes the first 5 values > 0)
 let maxDepth: Int       = 16
-let filename: String    = "Code/Advent/AoC_2025/data/inputDay11_2025.txt"
+let filename: String    = "Code/Advent/2025/data/inputDay11_2025.txt"
 
 // The read lines function
 func readLines () -> [String] {

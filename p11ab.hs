@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 11 part One and Two
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/11
 -- (Ter leering ende vermaeck...)
 --
 --  Part one:   The number of different paths leading from you to out is:   508

@@ -1,5 +1,6 @@
 -- Advent of Code 2025 - Day 3 part One and Two
 -- Solutions in Haskell
+-- https://adventofcode.com/2025/day/3
 -- (Ter leering ende vermaeck...)
 --
 -- Part one: The total output joltage is: 17427

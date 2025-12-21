@@ -47,21 +47,17 @@
           rjs (rest (drop-while #(not= mc %) js))]    ;;; get new list after maximum
       (maxJoltage (- dp 1) njs rjs))))
 
-(defn part-one 
-  [joltages]
-  (reduce + (map #(maxJoltage  2 '() %) joltages)))
-
-(defn part-two
-  [joltages]
-  (reduce + (map #(maxJoltage 12 '() %) joltages)))
+(defn work-day-3
+  [joltages code-length]
+  (reduce + (map #(maxJoltage  code-length '() %) joltages)))
 
 ;;; The 'main' program - - -
 (defn program [] 
   (println "Advent of Code 2025 - day 3  (Clojure)") 
   (print   "Part one: The total output joltage is: ") 
-  (println (part-one joltage-ratings))
+  (println (work-day-3 joltage-ratings 2))
   (print   "Part two: The total output joltage is: ") 
-  (println (part-two joltage-ratings)) 
+  (println (work-day-3 joltage-ratings 12)) 
   (println "0K.\n"))
 
 ;; Run in terminal via: clojure -M p03ab.clj

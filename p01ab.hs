@@ -58,9 +58,9 @@ countClicksOnZero rs = countClicksOnZero' 0 startDial rs
 main :: IO ()
 main = do   putStrLn "Advent of Code 2025 - day 1  (Haskell)"
             day1 <- parseRotations <$> lines <$> readFile filename
-            putStr "Part one: The password to open the door for part one: "
+            putStr "The password to open the door for part one: "
             print $ countOnZero day1
-            putStr "Part two: The password to open the door for part two: "
+            putStr "The password to open the door for part two: "
             print $ countClicksOnZero day1            
             putStrLn "0K.\n"
 

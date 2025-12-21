@@ -28,32 +28,33 @@ parseRotations = map parseRotation
         parseRotation (_:n)     = negate $ read n 
 
 countOnZero :: [Int] -> Int
-countOnZero rs = countOnZero' 0 startDial rs
+countOnZero = countOnZero' 0 startDial
     where
-        countOnZero' c _ []     = c 
-        countOnZero' c p (r:rs) | np == 0   = countOnZero' (c+1) 0  rs
-                                | otherwise = countOnZero'  c    np rs        
-            where
-                np = mod (p+r) dialResolution
+        countOnZero' zerosCount _             []                            = zerosCount 
+        countOnZero' zerosCount dialPosition (rotation:remainingRotations)    
+            | nextDialPosition == 0 = countOnZero' (zerosCount+1) 0                remainingRotations
+            | otherwise             = countOnZero'  zerosCount    nextDialPosition remainingRotations
+                where
+                    nextDialPosition = mod (dialPosition + rotation) dialResolution
 
 
 countClicksOnZero :: [Int] -> Int
-countClicksOnZero rs = countClicksOnZero' 0 startDial rs
+countClicksOnZero = countClicksOnZero' 0 startDial
     where
-        countClicksOnZero' c _ []       = c
-        countClicksOnZero' c p (r:rs)   | p == 0    = countClicksOnZero' (c+cp0) np rs
-                                        | otherwise = countClicksOnZero' (c+cc0) np rs
-            where
-                np  = mod (p+r) dialResolution
-                pp  = if r < 0 then (dialResolution-p) else p
-                rp  = abs r
-                cc0 = countClicksOnZero'' pp rp
-                cp0 = div rp dialResolution
-                -- count the multiple click (for >100+ rotations)
-                countClicksOnZero'' p r = mc + div (p+mr) dialResolution
-                    where
-                        (mc,mr) = divMod r dialResolution
-
+        countClicksOnZero' clicks _ []       = clicks
+        countClicksOnZero' clicks dialPosition (rotation:remainingRotations)
+            | dialPosition == 0 = countClicksOnZero' (clicks + nextClicksAt0) nextDialPosition remainingRotations
+            | otherwise         = countClicksOnZero' (clicks + nextClicksOn0) nextDialPosition remainingRotations
+                where
+                    nextDialPosition    = mod (dialPosition + rotation) dialResolution
+                    positionHelper      = if rotation < 0 then (dialResolution - dialPosition) else dialPosition
+                    positiveRotation    = abs rotation
+                    nextClicksOn0       = countClicksOnZero'' positionHelper positiveRotation
+                    nextClicksAt0       = div positiveRotation dialResolution
+                    -- count the multiple click (for >100+ rotations)
+                    countClicksOnZero'' position rotation = multiClicks + div (position + remainderPosition) dialResolution
+                        where
+                            (multiClicks,remainderPosition) = divMod rotation dialResolution
 
 main :: IO ()
 main = do   putStrLn "Advent of Code 2025 - day 1  (Haskell)"

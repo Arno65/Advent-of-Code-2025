@@ -3,8 +3,8 @@
 -- -- https://adventofcode.com/2025/day/4
 -- (Ter leering ende vermaeck...)
 --
---  Part one: The number of rolls of paper that can be accessed by a forklift is: 1370
---  Part two: The number of rolls of paper that can be accessed by a forklift is: 8437
+--  Part one: The number of rolls of paper that can be removed by a forklift is: 1370
+--  Part two: The number of rolls of paper that can be removed by a forklift is: 8437
 --
 -- (cl) by Arno Jacobs, 2025-12-04
 
@@ -70,9 +70,9 @@ workGrid part cnt grid  | part == PartOne   = canBeMoved
 main :: IO ()
 main = do   putStrLn "Advent of Code 2025 - day 4  (Haskell)"
             day4 <- lines <$> readFile filename
-            putStr "Part one: The number of rolls of paper that can be accessed by a forklift is: "
+            putStr "Part one: The number of rolls of paper that can be removed by a forklift is: "
             print $ workGrid PartOne 0 day4
-            putStr "Part two: The number of rolls of paper that can be accessed by a forklift is: "
+            putStr "Part two: The number of rolls of paper that can be removed by a forklift is: "
             print $ workGrid PartTwo 0 day4
             putStrLn "0K.\n"
 

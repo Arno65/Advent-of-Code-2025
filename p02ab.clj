@@ -13,6 +13,10 @@
 (ns p02ab
   (:require [clojure.string :as str]))
 
+;;; Some helper defines
+(def part1 1)
+(def part2 2)
+
 (defn split-on-comma
   [line]
   (str/split line #","))
@@ -86,9 +90,9 @@
 (defn program []
   (println "Advent of Code 2025 - day 2  (Clojure)")
   (print   "Part one: The sum of all invalid ID's is: ")
-  (println (work-day-2 1 ID-ranges))
+  (println (work-day-2 part1 ID-ranges))
   (print   "Part two: The sum of all invalid ID's is: ")
-  (println (work-day-2 2 ID-ranges))
+  (println (work-day-2 part2 ID-ranges))
   (println "0K.\n"))
 
 ;; Run in terminal via: clojure -M p02ab.clj

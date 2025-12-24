@@ -13,6 +13,10 @@
 (ns p03ab
   (:require [clojure.string :as str]))
 
+;;; Some helper defines
+(def digits-part-one 2)
+(def digits-part-two 12)
+
 ;;;; Read the data-set
 (defn get-lines
   [file]
@@ -43,21 +47,21 @@
     (let [take-length (- (+ (count js) 1) dp)         ;;; drop last little part of the digits
           jsp (take take-length js)
           mc  (reduce max jsp)                        ;;; get maximum digit value
-          njs (cons mc mjs)                           ;;; create reversed  maximum digits list
+          njs (cons mc mjs)                           ;;; create reversed maximum digits list
           rjs (rest (drop-while #(not= mc %) js))]    ;;; get new list after maximum
       (maxJoltage (- dp 1) njs rjs))))
 
 (defn work-day-3
   [joltages digits]
-  (reduce + (map #(maxJoltage  digits '() %) joltages)))
+  (reduce + (map #(maxJoltage digits '() %) joltages)))
 
 ;;; The 'main' program - - -
 (defn program [] 
   (println "Advent of Code 2025 - day 3  (Clojure)") 
   (print   "Part one: The total output joltage is: ") 
-  (println (work-day-3 joltage-ratings 2))
+  (println (work-day-3 joltage-ratings digits-part-one))
   (print   "Part two: The total output joltage is: ") 
-  (println (work-day-3 joltage-ratings 12)) 
+  (println (work-day-3 joltage-ratings digits-part-two)) 
   (println "0K.\n"))
 
 ;; Run in terminal via: clojure -M p03ab.clj

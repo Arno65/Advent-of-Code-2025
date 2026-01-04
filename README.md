@@ -11,6 +11,5 @@ Day 1 to 4 also have solutions in Clojure. (Just for the fun of it and learning 
 Day 11 also has a solution in Swift. The Swift version is the quicker one and uses less RAM.
 
 I've also worked on the Infi challenge. (In Dutch... [Infi AoC](https://aoc.infi.nl/2025) )
-That solution will be posted later on. 
 
 Happy coding!
